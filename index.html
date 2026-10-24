@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Barakah Tour & Travel - Haji & Umroh</title>
+    <link rel="icon" type="image/png" href="logo kabah.png">
+    <style>
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f9f4; /* Nuansa latar hijau muda islami */
+            color: #333;
+        }
+
+        header {
+            background-color: #004d26; /* Warna hijau tua khas Islami */
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 16px;
+        }
+
+        .search-bar {
+            background-color: #e2f0d9;
+            padding: 10px 20px;
+            text-align: right;
+            border-bottom: 1px solid #c8e1b9;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .search-bar input[type="submit"] {
+            padding: 5px 12px;
+            background-color: #004d26;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 15px;
+            gap: 15px;
+        }
+
+        nav {
+            flex: 1 1 200px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            align-self: flex-start;
+            position: sticky;
+            top: 15px;
+        }
+
+        nav h3 {
+            margin-top: 0;
+            color: #004d26;
+            border-bottom: 2px solid #004d26;
+            padding-bottom: 8px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #004d26;
+            font-weight: bold;
+            display: block;
+            transition: 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: #b8860b;
+            padding-left: 5px;
+        }
+
+        main {
+            flex: 4 1 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #e0e0e0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2.section-title {
+            color: #004d26;
+            background-color: #e2f0d9;
+            padding: 8px 12px;
+            border-left: 5px solid #004d26;
+            margin-top: 0;
+        }
+
+        .img-responsive {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .date-text {
+            color: #555;
+        }
+
+        .media-box {
+            background-color: #f4f9f4;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border: 1px solid #c8e1b9;
+        }
+
+        .media-full {
+            width: 100%;
+        }
+
+        .audio-title {
+            margin-top: 15px;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .data-table, .data-table th, .data-table td {
+            border: 1px solid #ccc;
+        }
+
+        .data-table th {
+            background-color: #004d26;
+            color: white;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 8px 10px;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .frame-container {
+            border: 2px solid #004d26;
+            border-radius: 5px;
+            overflow: hidden;
+            background: #fafafa;
+        }
+
+        .frame-header-mock {
+            background: #004d26;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .frame-body-mock {
+            display: flex;
+            min-height: 150px;
+        }
+
+        .frame-sidebar-mock {
+            width: 30%;
+            background: #e2f0d9;
+            padding: 10px;
+            border-right: 1px solid #ccc;
+        }
+
+        .frame-sidebar-mock ul {
+            padding-left: 15px;
+            margin-top: 5px;
+        }
+
+        .frame-content-mock {
+            width: 70%;
+            padding: 10px;
+        }
+
+        .frame-content-mock p {
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .iframe-map-title {
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #004d26;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Al-Barakah Tour & Travel</h1>
+        <p>Pusat Layanan Resmi Perjalanan Ibadah Haji, Umroh, dan Wisata Muslim</p>
+    </header>
+
+    <div class="search-bar">
+        <label for="search">Search: </label>
+        <input type="text" id="search" placeholder="Cari paket haji / umroh...">
+        <input type="submit" value="Search">
+    </div>
+
+    <div class="container">
+
+        <nav>
+            <h3>Navigasi Menu</h3>
+            <ul>
+                <li><a href="#link1-homepage">1. Homepage</a></li>
+                <li><a href="#link2-bullet">2. Persyaratan & Jenis</a></li>
+                <li><a href="#link3-tabel">3. Tabel Paket Haji & Umroh</a></li>
+                <li><a href="#link4-frame">4. Halaman Frame</a></li>
+                <li><a href="#link5-iframe">5. Halaman Iframe</a></li>
+            </ul>
+        </nav>
+
+        <main>
+
+            <section id="link1-homepage">
+                <h2 class="section-title">WELCOME TO MY HOMEPAGE</h2>
+                
+                <img src="makkah.jpg" alt="Ilustrasi Tanah Suci" class="img-responsive">
+                
+                <p>
+                    Menunaikan ibadah haji dan umroh merupakan impian setiap Muslim di seluruh dunia. Al-Barakah Tour & Travel hadir untuk memberikan pelayanan terbaik, amanah, dan profesional demi kenyamanan perjalanan ibadah Anda ke Tanah Suci Makkah dan Madinah. Kami mendampingi setiap langkah ibadah Anda mulai dari keberangkatan hingga kepemulangan ke tanah air.
+                </p>
+
+                <div class="media-box">
+                    <h3>🎥 Video Dokumentasi Manasik & Perjalanan</h3>
+                    <video controls class="media-full">
+                        <source src="makkah.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung tag video.
+                    </video>
+
+                    <h3 class="audio-title">🎵 Audio Latar / Backsound (Talbiyah / Nasyid)</h3>
+                    <audio id="bg-audio" controls loop class="media-full">
+                        <source src="sound islami.mp3" type="audio/mpeg">
+                        Browser Anda tidak mendukung tag audio.
+                    </audio>
+                    <p style="font-size: 12px; color: #555; margin-top: 5px;">*Catatan: Pastikan file audio bernama <code>backsound.mp3</code> berada di folder yang sama.</p>
+                </div>
+            </section>
+
+            <section id="link2-bullet">
+                <h2 class="section-title">2. PERSYARATAN & JENIS (Bullet & Numbering)</h2>
+                
+                <h3>Tahapan Pendaftaran Ibadah Haji (Ordered List / Numbering)</h3>
+                <ol type="1">
+                    <li>Melakukan pendaftaran pembukaan rekening BPS BPIH di bank syariah.</li>
+                    <li>Mendapatkan porsi nomor pendaftaran haji resmi dari Kementerian Agama.</li>
+                    <li>Melakukan pelunasan biaya perjalanan ibadah haji (BPIH) saat tahun keberangkatan.</li>
+                    <li>Mengikuti bimbingan manasik haji yang diselenggarakan oleh travel/Kemenag.</li>
+                </ol>
+
+                <h3>Jenis Paket Perjalanan (Unordered List / Bullet)</h3>
+                <ul type="square">
+                    <li>Haji Furoda (Visa Mujamalah / Tanpa Antre)</li>
+                    <li>Haji Khusus (ONH Plus Resmi Pemerintah)</li>
+                    <li>Umroh Reguler (Paket 9 & 12 Hari)</li>
+                    <li>Umroh Plus Turki / Dubai</li>
+                </ul>
+
+                <h3>Dokumen & Perlengkapan Wajib (Nested List / Campuran)</h3>
+                <ul>
+                    <li>Dokumen Perjalanan
+                        <ol type="a">
+                            <li>Paspor yang masih berlaku minimal 8 bulan</li>
+                            <li>Buku Kesehatan (Vaksin Meningitis)</li>
+                        </ol>
+                    </li>
+                    <li>Perlengkapan Ibadah
+                        <ol type="a">
+                            <li>Kain Ihram & Sabuk Khusus</li>
+                            <li>Buku Doa & Panduan Manasik</li>
+                        </ol>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="link3-tabel">
+                <h2 class="section-title">3. TARIF & PAKET HAJI & UMROH (Tabel)</h2>
+                <p>Berikut adalah daftar estimasi tarif dan fasilitas paket ibadah haji serta umroh:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Program / Paket</th>
+                            <th>Jenis Layanan</th>
+                            <th>Durasi</th>
+                            <th>Estimasi Biaya</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Umroh Reguler Hemat</td>
+                            <td>Hotel Bintang 3 (Dekat Masjid)</td>
+                            <td>9 Hari</td>
+                            <td>Rp 28.500.000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Umroh Plus Turki</td>
+                            <td>Hotel Bintang 4 & Tour Istanbul</td>
+                            <td>12 Hari</td>
+                            <td>Rp 35.000.000</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Haji Khusus (ONH Plus)</td>
+                            <td>Akomodasi VIP Makkah/Madinah</td>
+                            <td>25 Hari</td>
+                            <td>$ 14.500 USD</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Haji Furoda Non-Antre</td>
+                            <td>Visa Resmi Undangan Kerajaan</td>
+                            <td>20 Hari</td>
+                            <td>$ 19.000 USD</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="link4-frame">
+                <h2 class="section-title">4. TAMPILAN MOCK FRAME (Frame Concept)</h2>
+                <p>Penggunaan tata letak Frame (Header, Side Menu, Content Area):</p>
+
+                <div class="frame-container">
+                    <div class="frame-header-mock">INFORMASI PENTING TANAH SUCI</div>
+                    <div class="frame-body-mock">
+                        <div class="frame-sidebar-mock">
+                            <strong>Menu Info:</strong>
+                            <ul>
+                                <li>Jadwal Manasik</li>
+                                <li>Panduan Doa</li>
+                            </ul>
+                        </div>
+                        <div class="frame-content-mock">
+                            <strong>Area Konten Utama Frame:</strong>
+                            <p>Fitur ini memuat informasi kilat seputar persiapan keberangkatan jamaah haji dan umroh secara terstruktur.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="link5-iframe">
+                <h2 class="section-title">5. EMBED DOKUMEN / MAPS (Iframe)</h2>
+                <p>Menampilkan informasi rujukan dan peta lokasi kantor pusat travel menggunakan elemen <code>&lt;iframe&gt;</code>:</p>
+                <h3>Embed Informasi Rujukan (Wikipedia - Haji)</h3>
+                <iframe src="https://id.wikipedia.org/wiki/Haji" title="Iframe Wikipedia Haji"></iframe>
+                <h3 class="iframe-map-title">Embed Lokasi Kantor Pusat (Google Maps)</h3>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.1234!2d107.6!3d-6.9!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTQnMDAuMCJTIDEwN8KwMzYnMDAuMCJF!5e0!3m2!1sid!2sid!4v1600000000000" 
+                    loading="lazy">
+                </iframe>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2026 Al-Barakah Tour & Travel - Tugas UTS Pemrograman Web 1</p>
+    </footer>
+</body>
+</html>
